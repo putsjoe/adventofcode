@@ -8,6 +8,53 @@ with open('input.txt', 'r') as input_txt:
 
 # import ipdb; ipdb.set_trace()
 
+movement = {
+    'L': {
+        'n': {
+            'facing': 'w',
+            'x': (lambda x, distance: x - distance),
+            'y': (lambda a, distance: a)
+        },
+        'e': {
+            'facing': 'n',
+            'y': (lambda y, distance: y + distance),
+            'x': (lambda a, distance: a)
+        },
+        's': {
+            'facing': 'e',
+            'x': (lambda x, distance: x + distance),
+            'y': (lambda a, distance: a)
+        },
+        'w': {
+            'facing': 's',
+            'y': (lambda y, distance: y - distance),
+            'x': (lambda a, distance: a)
+        },
+    },
+    'R': {
+        'n': {
+            'facing': 'e',
+            'x': (lambda x, distance: x - distance),
+            'y': (lambda a, distance: a)
+        },
+        'e': {
+            'facing': 's',
+            'y': (lambda y, distance: y + distance),
+            'x': (lambda a, distance: a)
+        },
+        's': {
+            'facing': 'w',
+            'x': (lambda x, distance: x - distance),
+            'y': (lambda a, distance: a)
+        },
+        'w': {
+            'facing': 'n',
+            'y': (lambda y, distance: y + distance),
+            'x': (lambda a, distance: a)
+        }
+    }
+}
+
 for index, e in enumerate(data):
     direction = e[0]
     distance = int(e.strip('L').strip('R'))
@@ -20,38 +67,42 @@ for index, e in enumerate(data):
             facing = 'e'
             x = x + distance
     elif index > 0:
-        if facing == 'n':
-            if direction == 'L':
-                x = x - distance
-                facing = 'w'
+        facing = movement[direction][facing]['facing']
+        x = movement[direction][facing]['x'](x, distance)
+        y = movement[direction][facing]['y'](y, distance)
                 
-            elif direction == 'R':
-                x = x + distance
-                facing = 'e'
-                
-        elif facing == 'e':
-            if direction == 'L':
-                y = y + distance
-                facing = 'n'
-            elif direction == 'R':
-                y = y - distance
-                facing = 's'
-            
-        elif facing == 's':
-            if direction == 'L':
-                x = x + distance
-                facing = 'e'
-            elif direction == 'R':
-                x = x - distance
-                facing = 'w'
-            
-        elif facing == 'w':
-            if direction == 'L':
-                y = y - distance
-                facing = 's'
-            elif direction == 'R':
-                y = y + distance
-                facing = 'n'
+        # if facing == 'n':
+        #     if direction == 'L':
+        #         x = x - distance
+        #         facing = 'w'
+        #         
+        #     elif direction == 'R':
+        #         x = x + distance
+        #         facing = 'e'
+        #         
+        # elif facing == 'e':
+        #     if direction == 'L':
+        #         y = y + distance
+        #         facing = 'n'
+        #     elif direction == 'R':
+        #         y = y - distance
+        #         facing = 's'
+        #     
+        # elif facing == 's':
+        #     if direction == 'L':
+        #         x = x + distance
+        #         facing = 'e'
+        #     elif direction == 'R':
+        #         x = x - distance
+        #         facing = 'w'
+        #     
+        # elif facing == 'w':
+        #     if direction == 'L':
+        #         y = y - distance
+        #         facing = 's'
+        #     elif direction == 'R':
+        #         y = y + distance
+        #         facing = 'n'
         
     print e, x, y
             
