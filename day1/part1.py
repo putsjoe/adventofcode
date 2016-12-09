@@ -12,45 +12,45 @@ movement = {
     'L': {
         'n': {
             'facing': 'w',
-            'x': (lambda x, distance: x - distance),
-            'y': (lambda a, distance: a)
+            'x': (lambda x, d: x - d),
+            'y': (lambda a, d: a)
         },
         'e': {
             'facing': 'n',
-            'y': (lambda y, distance: y + distance),
-            'x': (lambda a, distance: a)
+            'y': (lambda y, d: y + d),
+            'x': (lambda a, d: a)
         },
         's': {
             'facing': 'e',
-            'x': (lambda x, distance: x + distance),
-            'y': (lambda a, distance: a)
+            'x': (lambda x, d: x + d),
+            'y': (lambda a, d: a)
         },
         'w': {
             'facing': 's',
-            'y': (lambda y, distance: y - distance),
-            'x': (lambda a, distance: a)
+            'y': (lambda y, d: y - d),
+            'x': (lambda a, d: a)
         },
     },
     'R': {
         'n': {
             'facing': 'e',
-            'x': (lambda x, distance: x - distance),
-            'y': (lambda a, distance: a)
+            'x': (lambda x, d: x - d),
+            'y': (lambda a, d: a)
         },
         'e': {
             'facing': 's',
-            'y': (lambda y, distance: y + distance),
-            'x': (lambda a, distance: a)
+            'y': (lambda y, d: y - d),
+            'x': (lambda a, d: a)
         },
         's': {
             'facing': 'w',
-            'x': (lambda x, distance: x - distance),
-            'y': (lambda a, distance: a)
+            'x': (lambda x, d: x + d),
+            'y': (lambda a, d: a)
         },
         'w': {
             'facing': 'n',
-            'y': (lambda y, distance: y + distance),
-            'x': (lambda a, distance: a)
+            'y': (lambda y, d: y + d),
+            'x': (lambda a, d: a)
         }
     }
 }
