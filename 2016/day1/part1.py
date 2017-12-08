@@ -71,39 +71,6 @@ for index, e in enumerate(data):
         x = movement[direction][facing]['x'](x, distance)
         y = movement[direction][facing]['y'](y, distance)
                 
-        # if facing == 'n':
-        #     if direction == 'L':
-        #         x = x - distance
-        #         facing = 'w'
-        #         
-        #     elif direction == 'R':
-        #         x = x + distance
-        #         facing = 'e'
-        #         
-        # elif facing == 'e':
-        #     if direction == 'L':
-        #         y = y + distance
-        #         facing = 'n'
-        #     elif direction == 'R':
-        #         y = y - distance
-        #         facing = 's'
-        #     
-        # elif facing == 's':
-        #     if direction == 'L':
-        #         x = x + distance
-        #         facing = 'e'
-        #     elif direction == 'R':
-        #         x = x - distance
-        #         facing = 'w'
-        #     
-        # elif facing == 'w':
-        #     if direction == 'L':
-        #         y = y - distance
-        #         facing = 's'
-        #     elif direction == 'R':
-        #         y = y + distance
-        #         facing = 'n'
-        
     print e, x, y
             
 print x
